@@ -1,0 +1,142 @@
+
+@font-face {
+    font-family: 'Foglihten';
+    src: url('FoglihtenNo07.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenier-Light';
+    src: url('AvenirLTStd-Light.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: #ffffff   ;
+}
+
+.the-box {
+    width: 100%;
+
+    background:   radial-gradient(circle, #eeeeee 0%, #d7d9d9 100%);
+    border-radius: 2px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(100, 100, 100, 0.5);
+    cursor:pointer;
+}
+
+.the-box:hover {
+    box-shadow: 2px 2px 20px rgba(174, 153, 121, 1);
+
+}
+
+.btn-brown {
+    font-family: 'Avenier-Light', sans-serif;
+    background: #ffffff;
+    color: #c9be97;
+    border:1px solid #c9be97;
+    padding: 3px 25px;
+
+    text-decoration: none;
+    font-weight: 300;
+
+    text-transform: uppercase;
+}
+
+.btn-brown:hover {
+    background: #c9be97;
+    color: #ffffff;
+    border:1px solid #ae9979;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-select {
+    border-radius: 15px;
+    height:22px;
+}
+
+.btn-confirm {
+    border:1px solid #c9be97;
+    padding: 3px 25px;
+    border-radius: 5px;
+    height: 32px;
+    text-transform: uppercase;
+    margin-left: auto;
+    float:right;
+}
+
+.btn-back {
+    border:1px solid #c9be97;
+    padding: 3px 25px;
+    border-radius: 5px;
+    height: 32px;
+    text-transform: uppercase;
+    margin-right: auto;
+    float:left;
+}
+
+.btn-selected {
+    background: #c9be97;
+    color: #ffffff;
+    border:1px solid #ae9979;
+    text-decoration: none;
+}
+
+h1 {
+    font-family: 'Foglihten', sans-serif;
+    font-size: 2.5rem;
+    color: #a9a9aa;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-family: 'Avenier-Light', sans-serif;
+    font-size: 2rem;
+    color: #cacbcc;
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    font-family: 'Avenier-Light', sans-serif;
+    font-size: 1.5rem;
+    color: #555658;
+    margin: 0;
+    padding: 0;
+}
+
+h4 {
+    font-family: 'Avenier-Light', sans-serif;
+    font-size: 1.0rem;
+    color: #555658;
+    margin: 5px 0 20px 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #cacbcc;
+    margin: 20px 0;
+}
+
+p {
+    font-family: 'Avenier-Light', sans-serif;
+    font-size: 1.0rem;
+    color: #555658;
+    margin: 5px 0 20px 0;
+    padding: 0;
+}
+
+.btn-disabled {
+    background: #ffffff;
+    color: #eeeeee;
+    border:1px solid #eeeeee;
+    text-decoration: none;
+    cursor: not-allowed;
+}
