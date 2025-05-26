@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/alpine.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+    <base href=""/>
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css"/>
+    <link rel="stylesheet" href="css/custom.css" media="screen"/>
+
+    <script src="js/object.js"></script>
+
+</head>
+<body>
+
+<div class="container" x-data="app_data">
+    <div class="row" x-show="current_step == 'Stem'">
+        <div class="col-12 my-4">
+            <h1 class=" d-flex justify-content-center">Voglio</h1>
+            <h2 class=" d-flex justify-content-center">LIGHTING COLLECTION</h2>
+            <h3 class=" d-flex justify-content-center">Stem Options</h3>
+            <hr/>
+            <p class="d-flex justify-content-center">Bloom Mounting Stems are available in three mounting options and
+                three satin finishes.</p>
+        </div>
+        <div class="stem-types-container row mb-5">
+            <template x-for="type in stem_types" :key="type">
+                <div class="stem-type-option col-12 col-md-4 mb-5" @click="selectStemType(type)">
+
+                    <div class="the-box">
+                        <img :src="stemTypeImage(type)" alt="Stem Type" class="img-fluid" style="max-width:100%">
+                    </div>
+
+                    <h4 x-text="type + ' Mounting Stem'"></h4>
+                    <button
+                            class="btn-brown btn-select"
+                            x-bind:class="{ 'btn-selected': selected_stem_type === type }">
+                        Select
+                    </button>
+                </div>
+            </template>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-5">
+                <button class="btn-brown btn-confirm"
+                        x-on:click="confirmStem()"
+                        x-show="selected_stem_type">
+                    Confirm Stem Type
+
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" x-show="current_step == 'Finish'">
+        <div class="col-12 col-md-7 p-md-5 p-0 m-0">
+            <div class="the-box">
+                <img :src="finishTypeImage()" alt="Stem Type" class="img-fluid" style="max-width:100%">
+            </div>
+        </div>
+        <div class="col-12 col-md-5">
+            <h1>Voglio</h1>
+            <h2>LIGHTING COLLECTION</h2>
+
+            <h3 class="mt-5">Satin Finish Option</h3>
+
+            <div class="ceiling-types-container">
+                <template x-for="type in finish_types" :key="type">
+                    <div class="row mt-5">
+                        <div class="col-3">
+                            <img :src="finishTypeSwatch(type)" alt="Stem Type" class="img-fluid" style="width:69px">
+                        </div>
+                        <div class="col-9">
+                            <h4 x-text="type + ' Ceiling Mounting Option'" class=""></h4>
+                            <button
+                                    class="btn-select btn-brown"
+                                    x-on:click="selectFinishType(type)"
+                                    x-bind:class="{ 'btn-selected': selected_finish_type === type }">
+                                Select
+                            </button>
+                        </div>
+
+                    </div>
+                </template>
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-12 mt-5">
+                <button class="btn-brown btn-back"
+                        x-on:click="current_step = 'Stem'"
+                        x-show="selected_stem_type">
+                    < back to stem options
+                </button>
+                <button class="btn-brown btn-confirm"
+                        x-on:click="confirmFinish()"
+                        x-show="selected_stem_type">
+                    Confirm Stem Finish
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" x-show="current_step == 'Ceiling'">
+        <div class="col-12 col-md-7 mr-4">
+            <div class="the-box">
+                <img :src="ceilingTypeImage()" alt="Stem Type" class="img-fluid" style="max-width:100%">
+            </div>
+        </div>
+        <div class="col-12 col-md-5">
+            <h1>Voglio</h1>
+            <h2>LIGHTING COLLECTION</h2>
+
+            <div id="ceiling_type_selector">
+                <h3>Ceiling Type</h3>
+
+                <div class="ceiling-types-container">
+                    <template x-for="type in ceiling_types" :key="type">
+                        <div class="ceiling-type-option">
+
+
+                            <h4 x-text="type + ' Ceiling Mounting Option'" class="mt-5"></h4>
+                            <button
+                                    class="btn-select btn-brown"
+                                    x-on:click="selectCeilingType(type)"
+                                    x-bind:class="{ 'btn-selected': selected_ceiling_type === type }">
+                                Select
+                            </button>
+                        </div>
+                    </template>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-12 mt-5">
+                <button class="btn-brown btn-back"
+                        x-on:click="current_step = 'Finish'">
+                    < back to finish options
+                </button>
+                <button class="btn-brown btn-confirm"
+                        x-on:click="confirmCeiling()"
+                        x-show="selected_ceiling_type">
+                    Confirm Stem Mounting
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" x-show="current_step == 'Bloom'">
+        <div class="col-12 col-md-7 p-md-5 p-0 m-0">
+            <div class="the-box">
+                <img :src="bloomImage()" alt="Stem Type" class="img-fluid" style="max-width:100%">
+            </div>
+        </div>
+        <div class="col-12 col-md-5">
+            <h1>Voglio</h1>
+            <h2>LIGHTING COLLECTION</h2>
+
+            <h3 class="mt-5">Bloom Options</h3>
+
+            <div class="ceiling-types-container">
+                <template x-for="type in bloom_types" :key="type">
+                    <div class="row mt-5">
+                        <div class="col-3">
+                            <div class="the-box" style="width:80px; height:80px;">
+                                <img :src="bloomHeadImage(type)" alt="Bloom Type" class="img-fluid" style="width:75px">
+                            </div>
+
+                        </div>
+                        <div class="col-9">
+                            <h4 x-text="type" class=""></h4>
+                            <button
+                                    class="btn-select btn-brown"
+                                    x-on:click="selectBloomType(type)"
+                                    x-bind:class="{ 'btn-selected': selected_bloom_type === type }">
+                                Select
+                            </button>
+                        </div>
+
+                    </div>
+                </template>
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-12 mt-5">
+                <button class="btn-brown btn-back"
+                        x-on:click="selected_stem_type == 'Ceiling' ? current_step = 'Ceiling' : current_step = 'Finish'"
+                        x-show="selected_stem_type">
+                    < back
+                </button>
+                <button class="btn-brown btn-confirm"
+                        x-on:click="confirmBloom()"
+                        x-show="selected_stem_type">
+                    Confirm Bloom
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" x-show="current_step == 'Done'">
+        <div class="col-12 col-md-7 p-md-5 p-0 m-0">
+            <div class="the-box">
+                <img :src="bloomImage()" alt="Stem Type" class="img-fluid" style="max-width:100%">
+            </div>
+        </div>
+        <div class="col-12 col-md-5">
+            <h1>Voglio</h1>
+            <h2>LIGHTING COLLECTION</h2>
+
+            <h3 class="mt-5">Your Selected Arrangement</h3>
+
+            <p x-text="doneText()"></p>
+            <hr/>
+
+            <button class="btn-brown btn-select">Technical Data</button>
+
+
+        </div>
+        <div class="row">
+            <div class="col-12 mt-5">
+                <button class="btn-brown btn-back"
+                        x-on:click="selected_stem_type == 'Ceiling' ? current_step = 'Ceiling' : current_step = 'Finish'"
+                        x-show="selected_stem_type">
+                    < back
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+
+</html>
