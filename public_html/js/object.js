@@ -55,7 +55,7 @@ document.addEventListener('alpine:init', () => {
         },
 
         finishTypeSwatch(type) {
-            return 'img/Satin Finish Colour Swatches/'+type+'.png';
+            return 'img/satin_finish_colour_swatches/'+type+'.png';
         },
         finishTypeImage()  {
             const url = 'img/select_lamp_elements/'+this.selected_stem_type.toLowerCase()+'/STEP 2 Satin Finish/'+this.selected_stem_type+'_Step 2_'+this.selected_finish_type+'.png';
