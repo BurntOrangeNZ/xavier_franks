@@ -58,7 +58,7 @@ document.addEventListener('alpine:init', () => {
             return 'img/satin_finish_colour_swatches/'+type+'.png';
         },
         finishTypeImage()  {
-            const url = 'img/select_lamp_elements/'+this.selected_stem_type.toLowerCase()+'/STEP 2 Satin Finish/'+this.selected_stem_type+'_Step 2_'+this.selected_finish_type+'.png';
+            const url = 'img/select_lamp_elements/'+this.selected_stem_type.toLowerCase()+'/step_two_satin_finish/'+this.selected_stem_type+'_Step 2_'+this.selected_finish_type+'.png';
             console.log('Finish Finish Image: ' + url);
             return url;
         },
