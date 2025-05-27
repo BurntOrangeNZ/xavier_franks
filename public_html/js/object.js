@@ -63,11 +63,11 @@ document.addEventListener('alpine:init', () => {
             return url;
         },
         ceilingTypeImage(type) {
-            return 'img/select_lamp_elements/ceiling/Step 3 Ceiling Type/Ceiling_Step 3_'+this.selected_finish_type+'_'+this.selected_ceiling_type+'.png';
+            return 'img/select_lamp_elements/ceiling/step_3_ceiling_type/Ceiling_Step 3_'+this.selected_finish_type+'_'+this.selected_ceiling_type+'.png';
         },
         bloomImage() {
             const silly_step = this.selected_stem_type == 'Ceiling' ? '4' : '3';
-            let url = 'img/select_lamp_elements/'+this.selected_stem_type.toLowerCase()+'/STEP '+silly_step+' Type of Bloom/'+this.selected_stem_type+'_Step '+silly_step+'_'+this.selected_finish_type;
+            let url = 'img/select_lamp_elements/'+this.selected_stem_type.toLowerCase()+'/step_'+silly_step+'_type_of_bloom/'+this.selected_stem_type+'_Step '+silly_step+'_'+this.selected_finish_type;
             if (this.selected_stem_type == 'Ceiling') {
                 url += '_'+this.selected_ceiling_type;
             }
@@ -76,7 +76,7 @@ document.addEventListener('alpine:init', () => {
             return url;
         },
         bloomHeadImage(type) {
-            return 'img/Lamp Heads Blooms/'+this.selected_finish_type+' '+type+'.png';
+            return 'img/lamp_heads_blooms/'+this.selected_finish_type+' '+type+'.png';
         },
 
         doneText() {
