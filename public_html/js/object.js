@@ -51,7 +51,7 @@ document.addEventListener('alpine:init', () => {
         },
 
         stemTypeImage(type) {
-            return 'img/select_lamp_elements/'+type.toLowerCase()+'/Step 1 Type Of Lamp/'+type+'_Step 1.png';
+            return 'img/select_lamp_elements/'+type.toLowerCase()+'/step_one_type_of_lamp/'+type+'_Step 1.png';
         },
 
         finishTypeSwatch(type) {
