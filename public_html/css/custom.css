@@ -13,6 +13,11 @@
     font-style: normal;
 }
 
+.space-text-div {
+  text-align: center;
+  line-height: 1.5; /* Adjusts spacing between lines */
+}
+
 body {
     background-color: #ffffff   ;
 }
