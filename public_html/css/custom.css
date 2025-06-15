@@ -41,6 +41,10 @@ body {
 
 }
 
+.box-options-align-l{
+    float: left;
+}
+
 .btn-brown {
     font-family: 'Avenier-Light', sans-serif;
     background: #ffffff;
@@ -70,7 +74,6 @@ body {
 .btn-confirm {
     border:1px solid #c9be97;
     padding: 3px 25px;
-    border-radius: 5px;
     height: 32px;
     text-transform: uppercase;
     margin-left: auto;
@@ -80,7 +83,6 @@ body {
 .btn-back {
     border:1px solid #c9be97;
     padding: 3px 25px;
-    border-radius: 5px;
     height: 32px;
     text-transform: uppercase;
     margin-right: auto;
