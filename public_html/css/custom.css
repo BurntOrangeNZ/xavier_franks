@@ -18,7 +18,7 @@
   line-height: 1.5; /* Adjusts spacing between lines */
 }
 
-.space-text-div-satin {
+.space-text-div-option{
   line-height: 1.5; /* Adjusts spacing between lines */
 }
 
@@ -42,7 +42,7 @@ body {
 }
 
 .box-options-align-l{
-    float: left;
+    margin-left: 0 !important;
 }
 
 .btn-brown {
