@@ -44,7 +44,7 @@
         <div class="row">
             <div class="col-12 mt-2 mb-4">
                 <button class="btn-brown btn-confirm"
-                        x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); confirmStem()"
+                        x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); confirmStem() "
                         x-show="selected_stem_type">
                     Confirm Stem Type
                 </button>
@@ -94,7 +94,7 @@
                 <button class="btn-brown btn-back"
                         x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); current_step = 'Stem'"
                         x-show="selected_stem_type">
-                    < back to stem options
+                    < back
                 </button>
                 <button class="btn-brown btn-confirm"
                         x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); confirmFinish()"
@@ -144,7 +144,7 @@
             <div class="col-12 mt-5">
                 <button class="btn-brown btn-back"
                         x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); current_step = 'Finish'">
-                    < back to finish options
+                    < back
                 </button>
                 <button class="btn-brown btn-confirm"
                         x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); confirmCeiling()"
