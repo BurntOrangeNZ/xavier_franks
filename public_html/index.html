@@ -24,7 +24,7 @@
             <p class="d-flex justify-content-center">Bloom Mounting Stems are available in three mounting options and
                 three satin finishes.</p>
         </div>
-        <div class="stem-types-container row mb-5">
+        <div class="stem-types-container row">
             <template x-for="type in stem_types" :key="type">
                 <div class="stem-type-option col-12 col-md-4 mb-5" @click="selectStemType(type)">
 
@@ -42,13 +42,13 @@
             </template>
         </div>
         <div class="row">
-            <div class="col-12 mt-5">
+            <div class="col-12 mt-2 mb-4">
                 <button class="btn-brown btn-confirm"
                         x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); confirmStem()"
                         x-show="selected_stem_type">
                     Confirm Stem Type
-
                 </button>
+                
             </div>
         </div>
     </div>
@@ -245,8 +245,4 @@
 </div>
 
 </body>
-
-
-
-
 </html>
