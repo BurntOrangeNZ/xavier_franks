@@ -26,7 +26,7 @@
         </div>
         <div class="stem-types-container row">
             <template x-for="type in stem_types" :key="type">
-                <div class="stem-type-option col-12 col-md-4 mb-5" @click="selectStemType(type)">
+                <div class="stem-type-option col-4 col-md-4 mb-5" @click="selectStemType(type)">
 
                     <div class="the-box">
                         <img :src="stemTypeImage(type)" alt="Stem Type" class="img-fluid" style="max-width:100%">
@@ -54,12 +54,12 @@
     </div>
 
     <div class="row" x-show="current_step == 'Finish'">
-        <div class="col-12 col-md-7 p-md-5 p-0 m-0">
+        <div class="col-7 col-md-7 p-md-5 p-0 m-0">
             <div class="the-box">
                 <img :src="finishTypeImage()" alt="Stem Type" class="img-fluid" style="max-width:100%">
             </div>
         </div>
-        <div class="col-12 col-md-5">
+        <div class="col-5 col-md-5">
             <div class ="space-text-div-option">
                 <br></br>
             <h1 style="color: #AE997A">Voglio</h1>
