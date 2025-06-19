@@ -55,11 +55,13 @@
 
     <div x-show="current_step == 'Finish'">
         <div class=" center-container">
-         <div class ="space-text-div-option  center-container">
-                        <h1 style="color: #AE997A; margin: 0;">Voglio </h1>
-            <h2>LIGHTING COLLECTION</h2>
-            <h3>Satin Finish Options</h3>
-            </div>
+         <div class="space-text-div-option center-container">
+  <div style="display: flex; justify-content: center; gap: 10px; align-items: center;">
+    <h1 class="text-mod-h1" style="color: #AE997A; margin: 0;">Voglio</h1>
+    <h2 class="text-mod-h1" style="margin: 0;">LIGHTING COLLECTION</h2>
+  </div>
+  <h3 class="text-mod-h3" style="margin-top: 10px;">Satin Finish Options</h3>
+</div>
             <br></br>
         <div class="col-9 col-md-3">
             <div class="the-box">
@@ -102,7 +104,7 @@
                 <button class="btn-brown btn-confirm"
                         x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); confirmFinish()"
                         x-show="selected_stem_type">
-                    Confirm Mounting
+                    Select Next Option
                 </button>
             </div>
         </div>
