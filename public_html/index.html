@@ -53,28 +53,29 @@
         </div>
     </div>
 
-    <div class="row" x-show="current_step == 'Finish'">
-        <div class="col-7 col-md-7 p-md-5 p-0 m-0">
+    <div x-show="current_step == 'Finish'">
+        <div class=" center-container">
+         <div class ="space-text-div-option  center-container">
+                        <h1 style="color: #AE997A; margin: 0;">Voglio </h1>
+            <h2>LIGHTING COLLECTION</h2>
+            <h3>Satin Finish Options</h3>
+            </div>
+            <br></br>
+        <div class="col-9 col-md-3">
             <div class="the-box">
                 <img :src="finishTypeImage()" alt="Stem Type" class="img-fluid" style="max-width:100%">
             </div>
         </div>
-        <div class="col-5 col-md-5">
-            <div class ="space-text-div-option">
-                <br></br>
-            <h1 style="color: #AE997A">Voglio</h1>
-            <h2>LIGHTING COLLECTION</h2>
-            </div>
-            <h3 class="mt-5">Satin Finish Option</h3>
 
-            <div class="ceiling-types-container">
+        <div>
+                <div class="ceiling-types-container row">
                 <template x-for="type in finish_types" :key="type">
-                    <div class="row mt-5">
-                        <div class="col-3">
+                    <div class="col-4 col-md-4 mb-5">
+                        <div>
                             <img :src="finishTypeSwatch(type)" alt="Stem Type" class="img-fluid" style="width:69px">
                         </div>
-                        <div class="col-9">
-                            <h4 x-text="type + ' Ceiling Mounting Option'" class=""></h4>
+                        <div>
+                            <h4 x-text="type + ' Satin'" class=""></h4>
                             <button
                                     class="btn-select btn-brown"
                                     x-on:click="selectFinishType(type)"
@@ -86,9 +87,11 @@
                     </div>
                 </template>
             </div>
-
+</div>
 
         </div>
+
+        
         <div class="row">
             <div class="col-12 mt-5">
                 <button class="btn-brown btn-back"
@@ -99,7 +102,7 @@
                 <button class="btn-brown btn-confirm"
                         x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); confirmFinish()"
                         x-show="selected_stem_type">
-                    Confirm Stem Finish
+                    Confirm Mounting
                 </button>
             </div>
         </div>
