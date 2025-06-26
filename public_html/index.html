@@ -114,119 +114,112 @@
         </div>
     </div>
 
-
-    <div class="row" x-show="current_step == 'Ceiling'">
-            <div class="col-12 col-md-7 p-md-5 p-0 m-0">
-            <div class="the-box">
-                <img :src="ceilingTypeImage()" alt="Stem Type" class="img-fluid" style="max-width:100%">
-            </div>
-        </div>
-        <div class="col-12 col-md-5">
-        
-            <div class ="space-text-div-option ceil-type">
-                <br></br>
-                <div class="ceil-title-row">
-                     <h1 class="text-mod" style="color: #AE997A">Voglio</h1>
-                     <h2 class="text-mod" >LIGHTING COLLECTION</h2>
-                </div>
-            </div>
-
-
-            <div id="ceiling_type_selector">
-                <h3>Ceiling Type</h3>
-
-                <div class="ceiling-types-container">
-                    <template x-for="type in ceiling_types" :key="type">
-                        <div class="ceiling-type-option">
-
-
-                            <h4 x-text="type + ' Ceiling Mounting Option'" class="mt-5"></h4>
-                            <button
-                                    class="btn-select btn-brown"
-                                    x-on:click="selectCeilingType(type)"
-                                    x-bind:class="{ 'btn-selected': selected_ceiling_type === type }">
-                                Select
-                            </button>
-                        </div>
-                    </template>
-                </div>
-
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-12 mt-5">
-                <button class="btn-brown btn-back"
-                        x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); current_step = 'Finish'">
-                    < back
-                </button>
-                <button class="btn-brown btn-confirm"
-                        x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); confirmCeiling()"
-                        x-show="selected_ceiling_type">
-                    Confirm Stem Mounting
-                </button>
-            </div>
-        </div>
+<div class="row" x-show="current_step == 'Ceiling'">
+  <div class="center-container">
+    <div class="space-text-div-option center-container">
+      <div style="display: flex; justify-content: center; gap: 7px; align-items: center;">
+        <h1 class="text-mod" style="color: #AE997A; margin-top: 5px;">Voglio</h1>
+        <h2 class="text-mod" style="margin-top: 5px">LIGHTING COLLECTION</h2>
+      </div>
+      <h3 class="text-mod-2" style="margin-top: 0px; margin-bottom: 10px">Ceiling Mounting Options</h3>
     </div>
 
-    <div class="row" x-show="current_step == 'Bloom'">
-        <div class="col-12 col-md-7 p-md-5 p-0 m-0">
-            <div class="the-box">
-                <img :src="bloomImage()" alt="Stem Type" class="img-fluid" style="max-width:100%">
-            </div>
-        </div>
-        <div class="col-12 col-md-5">
-
-            <div class ="space-text-div-option bloom-opt">
-                <br></br>
-                <div class="bloom-title-row">
-                        <h1 class="text-mod" style="color: #AE997A">Voglio</h1>
-                        <h2 class="text-mod">LIGHTING COLLECTION</h2>
-                </div>
-            </div>
-
-            <h3 class="mt-5">Bloom Options</h3>
-
-            <div class="ceiling-types-container">
-                <template x-for="type in bloom_types" :key="type">
-                    <div class="row mt-5">
-                        <div class="col-3">
-                            <div class="the-box" style="width:80px; height:80px;">
-                                <img :src="bloomHeadImage(type)" alt="Bloom Type" class="img-fluid" style="width:75px">
-                            </div>
-
-                        </div>
-                        <div class="col-9">
-                            <h4 x-text="type" class=""></h4>
-                            <button
-                                    class="btn-select btn-brown"
-                                    x-on:click="selectBloomType(type)"
-                                    x-bind:class="{ 'btn-selected': selected_bloom_type === type }">
-                                Select
-                            </button>
-                        </div>
-
-                    </div>
-                </template>
-            </div>
-
-
-        </div>
-        <div class="row">
-            <div class="col-12 mt-5">
-                <button class="btn-brown btn-back"
-                        x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); selected_stem_type == 'Ceiling' ? current_step = 'Ceiling' : current_step = 'Finish'"
-                        x-show="selected_stem_type">
-                    < back
-                </button>
-                <button class="btn-brown btn-confirm"
-                        x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); confirmBloom()"
-                        x-show="selected_stem_type">
-                    Confirm Bloom
-                </button>
-            </div>
-        </div>
+    <div class="col-8 col-md-4 mb-2">
+      <div class="the-box">
+        <img :src="ceilingTypeImage()" alt="Ceiling Type" class="img-fluid" style="max-width:100%">
+      </div>
     </div>
+
+    <div>
+      <div class="ceiling-types-container row">
+        <template x-for="type in ceiling_types" :key="type">
+          <div class="col-4 col-md-4 mb-5">
+            <div>
+              <h4 x-text="type + ' Ceiling Mounting Option'" class=""></h4>
+              <button
+                class="btn-select btn-brown"
+                x-on:click="selectCeilingType(type)"
+                x-bind:class="{ 'btn-selected': selected_ceiling_type === type }">
+                Select
+              </button>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 mt-5">
+      <button class="btn-brown btn-back"
+        x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); current_step = 'Finish'">
+        < back
+      </button>
+      <button class="btn-brown btn-confirm"
+        x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); confirmCeiling()"
+        x-show="selected_ceiling_type">
+        Confirm Stem Mounting
+      </button>
+    </div>
+  </div>
+</div>
+
+<div x-show="current_step == 'Bloom'">
+  <div class="center-container">
+    <div class="space-text-div-option center-container">
+      <div style="display: flex; justify-content: center; gap: 7px; align-items: center;">
+        <h1 class="text-mod" style="color: #AE997A; margin-top: 5px;">Voglio</h1>
+        <h2 class="text-mod" style="margin-top: 5px;">LIGHTING COLLECTION</h2>
+      </div>
+      <h3 class="text-mod-2" style="margin-top: 0px; margin-bottom: 10px">Bloom Options</h3>
+    </div>
+
+    <div class="col-8 col-md-4 mb-2">
+      <div class="the-box">
+        <img :src="bloomImage()" alt="Stem Type" class="img-fluid" style="max-width:100%">
+      </div>
+    </div>
+
+    <div class="col-12 col-md-5">
+      <div class="ceiling-types-container">
+        <template x-for="type in bloom_types" :key="type">
+          <div class="row mt-5">
+            <div class="col-3">
+              <div class="the-box" style="width:80px; height:80px;">
+                <img :src="bloomHeadImage(type)" alt="Bloom Type" class="img-fluid" style="width:75px">
+              </div>
+            </div>
+            <div class="col-9">
+              <h4 x-text="type" class=""></h4>
+              <button
+                class="btn-select btn-brown"
+                x-on:click="selectBloomType(type)"
+                x-bind:class="{ 'btn-selected': selected_bloom_type === type }">
+                Select
+              </button>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 mt-5">
+      <button class="btn-brown btn-back"
+        x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); selected_stem_type == 'Ceiling' ? current_step = 'Ceiling' : current_step = 'Finish'"
+        x-show="selected_stem_type">
+        < back
+      </button>
+      <button class="btn-brown btn-confirm"
+        x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); confirmBloom()"
+        x-show="selected_stem_type">
+        Confirm Bloom
+      </button>
+    </div>
+  </div>
+</div>
+
 
     <div class="row" x-show="current_step == 'Done'">
         <div class="col-12 col-md-7 p-md-5 p-0 m-0">
