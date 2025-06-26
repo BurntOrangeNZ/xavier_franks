@@ -93,9 +93,9 @@
                     </div>
                 </template>
             </div>
-</div>
-
         </div>
+
+    </div>
 
         
         <div class="row">
@@ -180,28 +180,29 @@
       </div>
     </div>
 
-    <div class="col-12 col-md-5">
-      <div class="ceiling-types-container">
-        <template x-for="type in bloom_types" :key="type">
-          <div class="row mt-5">
-            <div class="col-3">
-              <div class="the-box" style="width:80px; height:80px;">
-                <img :src="bloomHeadImage(type)" alt="Bloom Type" class="img-fluid" style="width:75px">
-              </div>
-            </div>
-            <div class="col-9">
-              <h4 x-text="type" class=""></h4>
-              <button
-                class="btn-select btn-brown"
-                x-on:click="selectBloomType(type)"
-                x-bind:class="{ 'btn-selected': selected_bloom_type === type }">
-                Select
-              </button>
-            </div>
+    <div>
+  <div class="ceiling-types-container row">
+    <template x-for="type in bloom_types" :key="type">
+      <div class="col-4 col-md-4 mb-5">
+        <div>
+          <div>
+            <img :src="bloomHeadImage(type)" alt="Bloom Type" class="img-fluid" style="width:69px">
           </div>
-        </template>
+        </div>
+        <div>
+          <h4 x-text="type" class=""></h4>
+          <button
+            class="btn-select btn-brown"
+            x-on:click="selectBloomType(type)"
+            x-bind:class="{ 'btn-selected': selected_bloom_type === type }">
+            Select
+          </button>
+        </div>
       </div>
-    </div>
+    </template>
+  </div>
+</div>
+
   </div>
 
   <div class="row">
