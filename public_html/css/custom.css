@@ -21,6 +21,38 @@
     font-size: clamp(12px, 4vw, 24px);
 }
 
+.bloom-opt{
+ display: flex;
+  flex-direction: column;
+}
+
+.bloom-title-row{
+display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ceil-type{
+     display: flex;
+  flex-direction: column;
+}
+
+.ceil-title-row{
+     display: flex;
+  gap: 10px;
+  flex-wrap: wrap; 
+}
+
+.tech-page{
+ display: flex;
+  flex-direction: column;
+}
+
+.tech-title-row{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap; 
+}
 
 .spc-txt-div{
  display: flex;
