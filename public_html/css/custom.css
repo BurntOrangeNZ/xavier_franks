@@ -13,13 +13,29 @@
     font-style: normal;
 }
 
-.text-mod-h1 {
+.text-mod {
     font-size: clamp(16px, 4vw, 32px);
 }
 
-.text-mod-h3 {
-    font-size:22px;
+.text-mod-2 {
+    font-size: clamp(12px, 4vw, 24px);
 }
+
+
+.spc-txt-div{
+ display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-row{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap; 
+}
+
+
 .space-text-div {
   text-align: center;
   line-height: 1.5; /* Adjusts spacing between lines */
