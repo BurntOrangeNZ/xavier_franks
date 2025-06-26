@@ -14,7 +14,7 @@
 }
 
 .text-mod-h1 {
-    font-size:25px;
+    font-size: clamp(16px, 4vw, 32px);
 }
 
 .text-mod-h3 {
