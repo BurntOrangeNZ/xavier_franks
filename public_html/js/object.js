@@ -57,6 +57,11 @@ document.addEventListener('alpine:init', () => {
         finishTypeSwatch(type) {
             return 'img/satin_finish_colour_swatches/'+type+'.png';
         },
+
+         mountingTypeThumbnail(type) {
+            return 'img/select_lamp_elements/ceiling/step_3_ceiling_type/thumbnail/Ceiling_Step_3_' + this.selected_finish_type + '_' + type + '_Thumbnail.png';
+        },
+
         finishTypeImage()  {
             const url = 'img/select_lamp_elements/'+this.selected_stem_type.toLowerCase()+'/step_two_satin_finish/'+this.selected_stem_type+'_Step 2_'+this.selected_finish_type+'.png';
             console.log('Finish Finish Image: ' + url);
