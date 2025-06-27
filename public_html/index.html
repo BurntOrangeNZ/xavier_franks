@@ -131,21 +131,39 @@
     </div>
 
     <div>
-      <div class="ceiling-types-container row">
-        <template x-for="type in ceiling_types" :key="type">
-          <div class="col-4 col-md-4 mb-5">
-            <div>
-              <h4 x-text="type + ' Ceiling Mounting Option'" class=""></h4>
-              <button
-                class="btn-select btn-brown"
-                x-on:click="selectCeilingType(type)"
-                x-bind:class="{ 'btn-selected': selected_ceiling_type === type }">
-                Select
-              </button>
-            </div>
-          </div>
-        </template>
+    
+<!-- ceiling-type thumbnails -->
+<div class="row justify-content-center row-cols-auto g-5">
+  <template x-for="type in ceiling_types" :key="type">
+    
+    <!-- One thumbnail / caption / button stack -->
+    <div class="d-flex flex-column align-items-center">
+
+      <!-- Thumbnail -->
+      <div class="the-box mb-2">
+        <img :src="mountingTypeThumbnail(type)"
+             alt=""
+             class="img-fluid"
+             width="80">
       </div>
+
+      <!-- Two-line caption with font class -->
+      <div class="text-center lh-sm mb-2 font-avenir">
+        <span class="d-block fw-normal" x-text="type + ' Ceiling'"></span>
+        <span class="d-block">Mounting Option</span>
+      </div>
+
+      <!-- Select button -->
+      <button
+        class="btn-select btn-brown"
+        x-on:click="selectCeilingType(type)"
+        x-bind:class="{ 'btn-selected': selected_ceiling_type === type }">
+        Select
+      </button>
+
+    </div>
+  </template>
+</div>
     </div>
   </div>
 
@@ -184,11 +202,11 @@
   <div class="ceiling-types-container row">
     <template x-for="type in bloom_types" :key="type">
       <div class="col-4 col-md-4 mb-5">
-        <div>
+         <div>
           <div class="the-box">
             <img :src="bloomHeadImage(type)" alt="Bloom Type" class="img-fluid" style="width:69px">
           </div>
-        </div>
+         </div>
         <div>
           <h4 x-text="type" class=""></h4>
           <button
