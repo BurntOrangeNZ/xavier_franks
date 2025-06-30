@@ -44,15 +44,15 @@
             </template>
         </div>
         <div class="row">
-            <div class="col-12 mt-2 mb-4">
-                <button class="btn-brown btn-confirm"
-                        x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); confirmStem() "
-                        x-show="selected_stem_type">
-                    Confirm Stem Type
-                </button>
-                
-            </div>
-        </div>
+  <div class="col-12 mt-5 mb-4"> <!-- Increased top margin from mt-2 to mt-4 -->
+    <button class="btn-brown btn-confirm"
+      x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); confirmStem()"
+      x-show="selected_stem_type">
+      Confirm Stem Type
+    </button>
+  </div>
+</div>
+
     </div>
 
     <div x-show="current_step == 'Finish'">
@@ -98,20 +98,29 @@
     </div>
 
         
-        <div class="row">
-            <div class="col-12 mt-5">
-                <button class="btn-brown btn-back"
-                        x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); current_step = 'Stem'"
-                        x-show="selected_stem_type">
-                    < back
-                </button>
-                <button class="btn-brown btn-confirm"
-                        x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); confirmFinish()"
-                        x-show="selected_stem_type">
-                    Select Next Option
-                </button>
-            </div>
-        </div>
+<div class="row align-items-center mt-3">
+  <!-- Back Button aligned left -->
+  <div class="col text-start">
+    <button class="btn-brown btn-back"
+      x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); current_step = 'Stem'"
+      x-show="selected_stem_type">
+      &lt; Back
+    </button>
+  </div>
+
+  <!-- Select Next Option Button aligned right with small right margin -->
+  <div class="col text-end">
+    <button class="btn-brown btn-confirm me-3"
+      style="white-space: nowrap;"
+      x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); confirmFinish()"
+      x-show="selected_stem_type">
+      Select Next Option
+    </button>
+  </div>
+</div>
+
+
+
     </div>
 
 <div class="row" x-show="current_step == 'Ceiling'">
@@ -224,20 +233,27 @@
 
   </div>
 
-  <div class="row">
-    <div class="col-12 mt-5">
-      <button class="btn-brown btn-back"
-        x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); selected_stem_type == 'Ceiling' ? current_step = 'Ceiling' : current_step = 'Finish'"
-        x-show="selected_stem_type">
-        < back
-      </button>
-      <button class="btn-brown btn-confirm"
-        x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); confirmBloom()"
-        x-show="selected_stem_type">
-        Confirm Bloom
-      </button>
-    </div>
+<div class="row align-items-center mt-3">
+  <!-- Back Button aligned left -->
+  <div class="col text-start">
+    <button class="btn-brown btn-back"
+      x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); selected_stem_type == 'Ceiling' ? current_step = 'Ceiling' : current_step = 'Finish'"
+      x-show="selected_stem_type">
+      &lt; Back
+    </button>
   </div>
+
+  <!-- Confirm Bloom Button aligned right -->
+  <div class="col text-end">
+    <button class="btn-brown btn-confirm me-3"
+      style="white-space: nowrap;"
+      x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); confirmBloom()"
+      x-show="selected_stem_type">
+      Confirm Bloom
+    </button>
+  </div>
+</div>
+
 </div>
 
 
@@ -267,7 +283,7 @@
     <div class="the-box-b" style="width: 80px; margin: 0 auto;">
       <img :src="stemTypeImage(selected_stem_type)" alt="Stem Type" class="img-fluid" style="width:100%;">
     </div>
-    <h5 class="mt-2" x-text="selected_stem_type + ' Stem'"></h4>
+    <h5 class="mt-2" x-text="selected_stem_type + ' Stem'"></h5>
   </div>
 
   <!-- Finish -->
@@ -275,7 +291,7 @@
     <div style="width: 80px; margin: 0 auto;">
       <img :src="finishTypeSwatch(selected_finish_type)" alt="Finish" class="img-fluid" style="width:100%;">
     </div>
-    <h5 class="mt-2" x-text="selected_finish_type + ' Finish'"></h4>
+    <h5 class="mt-2" x-text="selected_finish_type + ' Finish'"></h5>
   </div>
 
   <!-- Mounting (Ceiling only) -->
@@ -284,7 +300,7 @@
       <div class="the-box-b" style="width: 80px; margin: 0 auto;">
         <img :src="ceilingTypeImage()" alt="Mounting" class="img-fluid" style="width:100%;">
       </div>
-      <h5 class="mt-2" x-text="selected_ceiling_type + ' Mounting'"></h4>
+      <h5 class="mt-2" x-text="selected_ceiling_type + ' Mounting'"></h5>
     </div>
   </template>
 
@@ -293,7 +309,7 @@
     <div class="the-box-b" style="width: 80px; margin: 0 auto;">
       <img :src="bloomHeadImage(selected_bloom_type)" alt="Bloom" class="img-fluid" style="width:100%;">
     </div>
-    <h5 class="mt-2" x-text="selected_bloom_type + ' Bloom'"></h4>
+    <h5 class="mt-2" x-text="selected_bloom_type + ' Bloom'"></h5>
   </div>
 
 </div>
