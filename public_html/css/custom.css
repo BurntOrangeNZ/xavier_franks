@@ -210,6 +210,15 @@ h4 {
     font-weight: bold;
 }
 
+h5 {
+    font-family: 'Avenier-Light', sans-serif;
+    font-size: 0.8rem;
+    color: #555658;
+    margin: 5px 0 20px 0;
+    padding: 0;
+    font-weight: bold;
+}
+
 hr {
     border: 0;
     height: 1px;
