@@ -306,17 +306,23 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-12 mt-5">
-      <button class="btn-brown btn-back"
-        x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); selected_stem_type == 'Ceiling' ? current_step = 'Ceiling' : current_step = 'Finish'"
-        x-show="selected_stem_type">
-        < back
-      </button>
-      <button class="btn-brown btn-confirm">Technical Data</button>
-    </div>
+<div class="row align-items-center mt-3">
+  <!-- Back Button aligned left -->
+  <div class="col text-start">
+    <button class="btn-brown btn-back"
+      x-on:click="window.scrollTo({ top: 0, behavior: 'smooth' }); selected_stem_type == 'Ceiling' ? current_step = 'Ceiling' : current_step = 'Finish'"
+      x-show="selected_stem_type">
+      < back
+    </button>
+  </div>
+
+  <!-- Technical Data Button aligned right -->
+  <div class="col text-end">
+    <button class="btn-brown btn-confirm">Technical Data</button>
   </div>
 </div>
+
+
 
 
 </div>
