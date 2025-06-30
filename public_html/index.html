@@ -140,12 +140,14 @@
     <div class="d-flex flex-column align-items-center">
 
       <!-- Thumbnail -->
-      <div class="the-box mb-2">
-        <img :src="mountingTypeThumbnail(type)"
-             alt=""
-             class="img-fluid"
-             width="80">
-      </div>
+<div class="the-box-b" style="width: 80px; margin: 0 auto;">
+  <img 
+    :src="mountingTypeThumbnail(type)" 
+    alt="" 
+    class="img-fluid" 
+    style="width: 100%; display: block;">
+</div>
+
 
       <!-- Two-line caption with font class -->
       <div class="text-center lh-sm mb-2 font-avenir">
@@ -199,26 +201,25 @@
     </div>
 
     <div>
-  <div class="ceiling-types-container row">
-    <template x-for="type in bloom_types" :key="type">
-      <div class="col-4 col-md-4 mb-5">
-         <div>
-          <div class="the-box">
-            <img :src="bloomHeadImage(type)" alt="Bloom Type" class="img-fluid" style="width:69px">
-          </div>
-         </div>
-        <div>
-          <h4 x-text="type" class=""></h4>
-          <button
-            class="btn-select btn-brown"
-            x-on:click="selectBloomType(type)"
-            x-bind:class="{ 'btn-selected': selected_bloom_type === type }">
-            Select
-          </button>
-        </div>
+<div class="ceiling-types-container row">
+  <template x-for="type in bloom_types" :key="type">
+    <div class="col-4 col-md-4 mb-5 text-center">
+      <div class="the-box-b" style="width: 80px; margin: 0 auto;">
+        <img :src="bloomHeadImage(type)" alt="Bloom Type" class="img-fluid" style="width: 100%; display: block;">
       </div>
-    </template>
-  </div>
+
+      <h4 class="mt-2" x-text="type"></h4>
+
+      <button
+        class="btn-select btn-brown"
+        x-on:click="selectBloomType(type)"
+        x-bind:class="{ 'btn-selected': selected_bloom_type === type }">
+        Select
+      </button>
+    </div>
+  </template>
+</div>
+
 </div>
 
   </div>
