@@ -258,41 +258,41 @@
 
 
 <!-- additional image in last process below main image -->
-<!-- Selected Arrangement Recap -->
- <div class="ceiling-types-container row">
+ <!-- Selected Arrangement Recap -->
+<div class="ceiling-types-container row justify-content-center">
 
   <!-- Stem -->
-  <div :class="selected_stem_type === 'Ceiling' ? 'col-3 col-md-3 mb-5' : 'col-4 col-md-4 mb-5'">
-    <div class="the-box">
-      <img :src="stemTypeImage(selected_stem_type)" alt="Stem Type" class="img-fluid" style="width:69px">
+  <div :class="selected_stem_type === 'Ceiling' ? 'col-3 col-md-3 mb-5 text-center' : 'col-4 col-md-4 mb-5 text-center'">
+    <div class="the-box-b" style="width: 80px; margin: 0 auto;">
+      <img :src="stemTypeImage(selected_stem_type)" alt="Stem Type" class="img-fluid" style="width:100%;">
     </div>
-    <h4 x-text="selected_stem_type + ' Stem'"></h4>
+    <h4 class="mt-2" x-text="selected_stem_type + ' Stem'"></h4>
   </div>
 
   <!-- Finish -->
-  <div :class="selected_stem_type === 'Ceiling' ? 'col-3 col-md-3 mb-5' : 'col-4 col-md-4 mb-5'">
-    <div class="the-box">
-      <img :src="finishTypeSwatch(selected_finish_type)" alt="Finish" class="img-fluid" style="width:69px">
+  <div :class="selected_stem_type === 'Ceiling' ? 'col-3 col-md-3 mb-5 text-center' : 'col-4 col-md-4 mb-5 text-center'">
+    <div style="width: 80px; margin: 0 auto;">
+      <img :src="finishTypeSwatch(selected_finish_type)" alt="Finish" class="img-fluid" style="width:100%;">
     </div>
-    <h4 x-text="selected_finish_type + ' Finish'"></h4>
+    <h4 class="mt-2" x-text="selected_finish_type + ' Finish'"></h4>
   </div>
 
   <!-- Mounting (Ceiling only) -->
   <template x-if="selected_stem_type === 'Ceiling'">
-    <div class="col-3 col-md-3 mb-5">
-      <div class="the-box">
-        <img :src="ceilingTypeImage()" alt="Mounting" class="img-fluid" style="width:69px">
+    <div class="col-3 col-md-3 mb-5 text-center">
+      <div class="the-box-b" style="width: 80px; margin: 0 auto;">
+        <img :src="ceilingTypeImage()" alt="Mounting" class="img-fluid" style="width:100%;">
       </div>
-      <h4 x-text="selected_ceiling_type + ' Mounting'"></h4>
+      <h4 class="mt-2" x-text="selected_ceiling_type + ' Mounting'"></h4>
     </div>
   </template>
 
   <!-- Bloom -->
-  <div :class="selected_stem_type === 'Ceiling' ? 'col-3 col-md-3 mb-5' : 'col-4 col-md-4 mb-5'">
-    <div class="the-box">
-      <img :src="bloomHeadImage(selected_bloom_type)" alt="Bloom" class="img-fluid" style="width:69px">
+  <div :class="selected_stem_type === 'Ceiling' ? 'col-3 col-md-3 mb-5 text-center' : 'col-4 col-md-4 mb-5 text-center'">
+    <div class="the-box-b" style="width: 80px; margin: 0 auto;">
+      <img :src="bloomHeadImage(selected_bloom_type)" alt="Bloom" class="img-fluid" style="width:100%;">
     </div>
-    <h4 x-text="selected_bloom_type + ' Bloom'"></h4>
+    <h4 class="mt-2" x-text="selected_bloom_type + ' Bloom'"></h4>
   </div>
 
 </div>
