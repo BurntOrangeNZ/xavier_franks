@@ -25,6 +25,8 @@
             <hr/>
             <p class="d-flex justify-content-center">Bloom Mounting Stems are available in three mounting options and
                 three satin finishes.</p>
+
+                
         </div>
         <div class="stem-types-container row">
             <template x-for="type in stem_types" :key="type">
@@ -280,7 +282,7 @@
 
   <!-- Stem -->
   <div :class="selected_stem_type === 'Ceiling' ? 'col-3 col-md-3 mb-5 text-center' : 'col-4 col-md-4 mb-5 text-center'">
-    <div class="the-box-b" style="width: 80px; margin: 0 auto;">
+    <div class="the-box-b" style="width: 85px; margin: 0 auto;">
       <img :src="stemTypeImage(selected_stem_type)" alt="Stem Type" class="img-fluid" style="width:100%;">
     </div>
     <h5 class="mt-2" x-text="selected_stem_type + ' Stem'"></h5>
@@ -288,8 +290,8 @@
 
   <!-- Finish -->
   <div :class="selected_stem_type === 'Ceiling' ? 'col-3 col-md-3 mb-5 text-center' : 'col-4 col-md-4 mb-5 text-center'">
-    <div style="width: 80px; margin: 0 auto;">
-      <img :src="finishTypeSwatch(selected_finish_type)" alt="Finish" class="img-fluid" style="width:100%;">
+    <div style="width: 85px; margin: 0 auto;">
+      <img :src="finishTypeSwatch(selected_finish_type)" alt="Finish" style="width: 90px; margin: 0 auto;"">
     </div>
     <h5 class="mt-2" x-text="selected_finish_type + ' Finish'"></h5>
   </div>
@@ -297,7 +299,7 @@
   <!-- Mounting (Ceiling only) -->
   <template x-if="selected_stem_type === 'Ceiling'">
     <div class="col-3 col-md-3 mb-5 text-center">
-      <div class="the-box-b" style="width: 80px; margin: 0 auto;">
+      <div class="the-box-b" style="width: 85px; margin: 0 auto;">
         <img :src="ceilingTypeImage()" alt="Mounting" class="img-fluid" style="width:100%;">
       </div>
       <h5 class="mt-2" x-text="selected_ceiling_type + ' Mounting'"></h5>
@@ -306,7 +308,7 @@
 
   <!-- Bloom -->
   <div :class="selected_stem_type === 'Ceiling' ? 'col-3 col-md-3 mb-5 text-center' : 'col-4 col-md-4 mb-5 text-center'">
-    <div class="the-box-b" style="width: 80px; margin: 0 auto;">
+    <div class="the-box-b" style="width: 85px; margin: 0 auto;">
       <img :src="bloomHeadImage(selected_bloom_type)" alt="Bloom" class="img-fluid" style="width:100%;">
     </div>
     <h5 class="mt-2" x-text="selected_bloom_type + ' Bloom'"></h5>
