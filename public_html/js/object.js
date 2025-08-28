@@ -6,69 +6,121 @@ document.addEventListener('alpine:init', () => {
         current_step: 'Stem',
         finish_types : ['Nickle','Brass','Black'],
         selected_finish_type: 'Nickle',
-        stem_types: ['Ceiling','Floor','Table'],
+        stem_types: ['Floor','Ceiling','Table'],
         selected_stem_type: '',
-        ceiling_types: ['Flat','Sloping'],
+        ceiling_types: ['Flat','Sloping',''],
         selected_ceiling_type: 'Flat',
         bloom_types: ['Magnolia','Poppy','Lotus'],
         selected_bloom_type: 'Magnolia',
+        step_display_names: {
+            'Stem': 'Stem Options',
+            'Finish': 'Satin Finish Options',
+            'Ceiling': 'Ceiling Mounting Options',
+            'Bloom': 'Bloom Options',
+            'Done': 'Selected Options'
+        },
+        display_instiue: false,
 
         getStep() {
 
         },
-        confirmStem() {
-            this.current_step = 'Finish';
-            console.log('Selected stem type:', this.selected_stem_type);
+        next() {
+            const currentIndex = this.steps.indexOf(this.current_step);
+            if (currentIndex < this.steps.length - 1) {
+                this.current_step = this.steps[currentIndex + 1];
+            }
+            if (this.current_step == 'Ceiling' && this.selected_stem_type != 'Ceiling') {
+                this.current_step = 'Bloom';
+            }
         },
-        confirmFinish() {
-            this.current_step = this.selected_stem_type == 'Ceiling' ? 'Ceiling' : 'Bloom';
-            console.log('Selected stem type:', this.selected_stem_type);
+        back() {
+            const currentIndex = this.steps.indexOf(this.current_step);
+            if (currentIndex > 0) {
+                this.current_step = this.steps[currentIndex - 1];
+            }
+            if (this.current_step == 'Ceiling' && this.selected_stem_type != 'Ceiling') {
+                this.current_step = 'Finish';
+            }
         },
-        confirmCeiling() {
-            this.current_step = 'Bloom';
-            console.log('Selected ceiling type:', this.selected_ceiling_type);
+        selectorOptions() {
+            switch(this.current_step) {
+                case 'Stem':
+                    return this.stem_types;
+                case 'Finish':
+                    return this.finish_types;
+                case 'Ceiling':
+                    return this.ceiling_types;
+                case 'Bloom':
+                    return this.bloom_types;
+                default:
+                    return [];
+            }
         },
-        confirmBloom() {
-            this.current_step = 'Done';
-            console.log('Selected bloom type:', this.selected_bloom_type);
+        selectOption(type) {
+            switch(this.current_step) {
+                case 'Stem':
+                    this.selected_stem_type = type;
+                    break;
+                case 'Finish':
+                    this.selected_finish_type = type;
+                    break;
+                case 'Ceiling':
+                    this.selected_ceiling_type = type;
+                    break;
+                case 'Bloom':
+                    this.selected_bloom_type = type;
+                    break;
+            }
+        },
+        isSelected(type) {
+            switch(this.current_step) {
+                case 'Stem':
+                    return this.selected_stem_type == type;
+                case 'Finish':
+                    return this.selected_finish_type == type;
+                case 'Ceiling':
+                    return this.selected_ceiling_type == type;
+                case 'Bloom':
+                    return this.selected_bloom_type == type;
+            }
         },
 
-        selectStemType(type) {
-            this.selected_stem_type = type;
-            console.log('Selected stem_type:', type);
-        },
-        selectFinishType(type) {
-            this.selected_finish_type = type;
-            console.log('Selected finish type:', type);
-        },
-        selectCeilingType(type) {
-            this.selected_ceiling_type = type;
-            console.log('Selected ceiling type:', type);
-        },
-        selectBloomType(type) {
-            this.selected_bloom_type = type;
-            console.log('Selected bloom type:', type);
-        },
 
         stemTypeImage(type) {
             return 'img/select_lamp_elements/'+type.toLowerCase()+'/step_one_type_of_lamp/'+type+'_Step 1.png';
         },
 
-        finishTypeSwatch(type) {
-            return 'img/satin_finish_colour_swatches/'+type+'.png';
+        swatch(type) {
+            switch(this.current_step) {
+                case 'Stem':
+                    return '';
+                case 'Finish':
+                    return 'img/satin_finish_colour_swatches/'+type+'.png';
+                case 'Ceiling':
+                    return 'img/select_lamp_elements/ceiling/step_3_ceiling_type/thumbnail/Ceiling_Step_3_' + this.selected_finish_type + '_' + type + '_Thumbnail.png';
+                case 'Bloom':
+                    return 'img/lamp_heads_blooms/'+this.selected_finish_type+' '+type+'.png';
+            }
         },
 
-         mountingTypeThumbnail(type) {
-            return 'img/select_lamp_elements/ceiling/step_3_ceiling_type/thumbnail/Ceiling_Step_3_' + this.selected_finish_type + '_' + type + '_Thumbnail.png';
-        },
+        bigImage() {
+            switch(this.current_step) {
+                case 'Stem':
+                    return this.stemTypeImage(this.selected_stem_type);
+                case 'Finish':
+                    return 'img/select_lamp_elements/'+this.selected_stem_type.toLowerCase()+'/step_two_satin_finish/'+this.selected_stem_type+'_Step 2_'+this.selected_finish_type+'.png';
+                case 'Ceiling':
+                    return 'img/select_lamp_elements/ceiling/step_3_ceiling_type/Ceiling_Step 3_'+this.selected_finish_type+'_'+this.selected_ceiling_type+'.png';
+                case 'Bloom':
+                    return this.bloomImage()
 
-        finishTypeImage()  {
-            const url = 'img/select_lamp_elements/'+this.selected_stem_type.toLowerCase()+'/step_two_satin_finish/'+this.selected_stem_type+'_Step 2_'+this.selected_finish_type+'.png';
-            console.log('Finish Finish Image: ' + url);
-            return url;
-        },
-        ceilingTypeImage(type) {
-            return 'img/select_lamp_elements/ceiling/step_3_ceiling_type/Ceiling_Step 3_'+this.selected_finish_type+'_'+this.selected_ceiling_type+'.png';
+                case 'Done':
+                    if (this.display_instiue) {
+                        return this.insitueImage();
+                    } else {
+                        return this.bloomImage();
+                    }
+            }
         },
         bloomImage() {
             const silly_step = this.selected_stem_type == 'Ceiling' ? '4' : '3';
@@ -76,12 +128,15 @@ document.addEventListener('alpine:init', () => {
             if (this.selected_stem_type == 'Ceiling') {
                 url += '_'+this.selected_ceiling_type;
             }
-            url += '_'+this.selected_bloom_type+'.png';
-            console.log(url);
-            return url;
+            return url + '_'+this.selected_bloom_type+'.png';
         },
-        bloomHeadImage(type) {
-            return 'img/lamp_heads_blooms/'+this.selected_finish_type+' '+type+'.png';
+        insitueImage() {
+            let stem = this.selected_stem_type;
+            if (stem == 'Ceiling') {
+                stem = this.selected_ceiling_type + ' Ceiling';
+            }
+            let url2 = 'img/instiues/'+stem+' '+this.selected_finish_type+' '+this.selected_bloom_type+'.jpg';
+            return url2;
         },
 
         doneText() {
