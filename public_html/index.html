@@ -10,11 +10,24 @@
 </head>
 <body>
 
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="https://www.xavierfranks.com">
+            <img src="img/voglio_logo.png" alt="XF Logo" style="max-height:40px; margin-top:-10px;">
+        </a>
+        <div class="d-flex">
+            <a class="nav-link" href="https://www.xavierfranks.com" style="color:white">< home</a>
+        </div>
+
+
+    </div>
+</div>
+
 <div class="container" x-data="app_data">
     <div class="row">
         <div class="col-12 text-center my-0 white-bottom-border">
-            <h1>Voglio</h1>
-            <h2>LIGHTING COLLECTION</h2>
+            <h1>Voglio  <span class="inside">CONFIGURATOR APP</span></h1>
+
             <h3 x-text="step_display_names[current_step]"></h3>
         </div>
     </div>
