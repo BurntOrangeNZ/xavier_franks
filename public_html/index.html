@@ -13,13 +13,11 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <a class="navbar-brand" onclick="document.location.reload()" href="#">
-            <img src="img/xf_logo.svg" alt="XF Logo" style="margin-top:0px;width: 100px">
+            <img src="img/xf_logo.svg" alt="XF Logo" style="width: 100px">
         </a>
         <div class="d-flex">
-            <a class="nav-link" href="https://www.xavierfranks.com" style="color:white">< home</a>
+            <a class="nav-link" href="https://www.xavierfranks.com" style="color:white">< HOME</a>
         </div>
-
-
     </div>
 </div>
 
@@ -39,7 +37,7 @@
                 three satin finishes.</p>
 
             <img x-show="selected_stem_type == ''" src="img/lamps.jpg" alt="Stem Options Diagram"
-                 style="max-width:100%;border:2px solid #AE9979">
+                 style="max-width:100%">
             <div x-show="selected_stem_type != ''" class="the-box">
                 <img :src="stemTypeImage()" :alt="selected_stem_type + ' large image'" style="max-width:100%">
             </div>
@@ -47,7 +45,7 @@
     </div>
 
     <div x-show="current_step == 'Finish' || current_step == 'Ceiling' || current_step == 'Bloom' || current_step == 'Done'"
-         class="row mt-1 mt-md-5">
+         class="row mt-1 mt-md-2">
         <div class="col-12 my-2">
             <div class="the-box">
                 <img :src="bigImage()" :alt="current_step + ' large image'" style="max-width:100%">
@@ -70,6 +68,7 @@
                         :class="{ 'btn-selected': isSelected(type) }">
                     Select
                 </button>
+
             </div>
         </template>
         <div x-show="current_step == 'Done'">

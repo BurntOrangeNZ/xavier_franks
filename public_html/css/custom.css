@@ -39,7 +39,7 @@ body {
 }
 
 .navbar {
-    background: #c9be97;
+    background: #AE997A;
 }
 
 .btn-brown {
@@ -47,11 +47,11 @@ body {
     background: #ffffff;
     color: #c9be97;
     border: 1px solid #c9be97;
-    padding: 4px 25px;
+    padding: 4px 15px;
     font-size: 16px;
     text-decoration: none;
     font-weight: 300;
-    border-radius: 15px;
+    border-radius: 20px;
     text-transform: uppercase;
 }
 
@@ -66,7 +66,7 @@ body {
 
 .btn-confirm {
     border: 1px solid #c9be97;
-    padding: 3px 25px;
+    padding: 3px 15px;
     height: 32px;
     text-transform: uppercase;
     margin-left: auto;
@@ -77,7 +77,7 @@ body {
 
 .btn-back {
     border: 1px solid #c9be97;
-    padding: 3px 25px;
+    padding: 3px 15px;
     height: 32px;
     text-transform: uppercase;
     margin-right: auto;
@@ -123,7 +123,7 @@ h2 {
 
 h3 {
     font-family: 'Avenier-Light', sans-serif;
-    font-size: clamp(12px, 4vw, 24px);
+    font-size: clamp(10px, 3vw, 20px);
     color: #AE9979;
     margin: 0 0 15px 0;
     padding: 0;
@@ -135,7 +135,7 @@ h4 {
     font-family: 'Avenier-Light', sans-serif;
     font-size: 1.0rem;
     color: #555658;
-    margin: 5px 0 20px 0;
+    margin: 15px 0 10px 0;
     padding: 0;
     font-weight: bold;
 }
@@ -151,7 +151,7 @@ h5 {
 
 .blurb {
     font-family: 'Avenier-Light', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     color: #76747B;
     margin: 15px 0 20px 0;
     padding: 0;
