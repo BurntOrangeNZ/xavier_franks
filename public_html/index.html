@@ -12,8 +12,8 @@
 
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="https://www.xavierfranks.com">
-            <img src="img/voglio_logo.png" alt="XF Logo" style="max-height:40px; margin-top:-10px;">
+        <a class="navbar-brand" onclick="document.location.reload()" href="#">
+            <img src="img/xf_logo.svg" alt="XF Logo" style="margin-top:0px;width: 100px">
         </a>
         <div class="d-flex">
             <a class="nav-link" href="https://www.xavierfranks.com" style="color:white">< home</a>
@@ -37,8 +37,12 @@
             <p class="d-flex justify-content-center blurb">Bloom Mounting Stems are available in three mounting options
                 and
                 three satin finishes.</p>
-            <img src="img/lamps.jpg" alt="Stem Options Diagram"
+
+            <img x-show="selected_stem_type == ''" src="img/lamps.jpg" alt="Stem Options Diagram"
                  style="max-width:100%;border:2px solid #AE9979">
+            <div x-show="selected_stem_type != ''" class="the-box">
+                <img :src="stemTypeImage()" :alt="selected_stem_type + ' large image'" style="max-width:100%">
+            </div>
         </div>
     </div>
 
