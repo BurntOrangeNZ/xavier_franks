@@ -37,6 +37,8 @@ document.addEventListener('alpine:init', () => {
             const currentIndex = this.steps.indexOf(this.current_step);
             if (currentIndex > 0) {
                 this.current_step = this.steps[currentIndex - 1];
+            } else {
+                this.selected_stem_type = false;
             }
             if (this.current_step == 'Ceiling' && this.selected_stem_type != 'Ceiling') {
                 this.current_step = 'Finish';

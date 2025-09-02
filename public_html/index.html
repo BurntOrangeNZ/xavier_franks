@@ -32,7 +32,7 @@
 
     <div class="row" x-show="current_step == 'Stem'">
         <div class="col-12 my-0">
-            <p class="d-flex justify-content-center blurb">Bloom Mounting Stems are available in three mounting options
+            <p class="d-flex text-center justify-content-center blurb">Bloom Mounting Stems are available in three mounting options
                 and
                 three satin finishes.</p>
 
@@ -68,6 +68,9 @@
                         :class="{ 'btn-selected': isSelected(type) }">
                     Select
                 </button>
+                <div x-show="type == ''" style="width: 100px">
+&nbsp;
+                </div>
 
             </div>
         </template>
@@ -87,7 +90,7 @@
         <div class="text-start">
             <button class="btn-brown btn-back"
                     @click="back()"
-                    x-show="selected_stem_type && current_step != 'Stem'">
+                    x-show="selected_stem_type">
                 BACK
             </button>
         </div>
