@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
     <base href=""/>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/custom.css" media="screen"/>
+    <link id="custom-css" rel="stylesheet" href="css/custom.css" media="screen"/>
+
     <script src="js/object.js"></script>
 </head>
+
+<script>
+    document.getElementById('custom-css').href = 'css/custom.css?v=' + Date.now();
+
+</script>
 <body>
 
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -15,6 +21,12 @@
         <a class="navbar-brand" onclick="document.location.reload()" href="#">
             <img src="img/xf_logo.svg" alt="XF Logo" style="width: 100px">
         </a>
+
+        <div class="d-flex">
+            <div class="h1">Voglio  <br/>
+                <span class="h2">CONFIGURATOR APP</span></div>
+        </div>
+
         <div class="d-flex">
             <a class="nav-link" href="https://www.xavierfranks.com" style="color:white">< HOME</a>
         </div>
@@ -24,7 +36,7 @@
 <div class="container" x-data="app_data">
     <div class="row">
         <div class="col-12 text-center my-0 white-bottom-border">
-            <h1>Voglio  <span class="inside">CONFIGURATOR APP</span></h1>
+
 
             <h3 x-text="step_display_names[current_step]"></h3>
         </div>
@@ -36,16 +48,14 @@
                 and
                 three satin finishes.</p>
 
-            <img x-show="selected_stem_type == ''" src="img/lamps.jpg" alt="Stem Options Diagram"
+            <img  src="img/lamps.jpg" alt="Stem Options Diagram" class="three-lamps"
                  style="max-width:100%">
-            <div x-show="selected_stem_type != ''" class="the-box">
-                <img :src="stemTypeImage()" :alt="selected_stem_type + ' large image'" style="max-width:100%">
-            </div>
+
         </div>
     </div>
 
     <div x-show="current_step == 'Finish' || current_step == 'Ceiling' || current_step == 'Bloom' || current_step == 'Done'"
-         class="row mt-1 mt-md-2">
+         class="row mt-1 mt-md-2 mb-1 mb-md-2">
         <div class="col-12 my-2">
             <div class="the-box">
                 <img :src="bigImage()" :alt="current_step + ' large image'" style="max-width:100%">
@@ -56,9 +66,9 @@
     <div class="d-flex justify-content-between selector-buttons">
         <template x-for="type in selectorOptions()" :key="type">
             <div class="text-center" @click="selectOption(type)">
-                <div x-show="type != '' && current_step != 'Stem'">
+                <div x-show="type != ''">
                     <div>
-                        <img :src="swatch(type)" :alt="type + 'thumbnail'" class="img-thumb">
+                        <img :src="swatch(type)" :alt="type + 'thumbnail'" class="img-thumb" :class="current_step == 'Stem' ? 'img-thumb-stem' : ''">
                     </div>
                 </div>
                 <h4 x-text="type" x-show="type != ''"></h4>
@@ -75,13 +85,13 @@
             </div>
         </template>
         <div x-show="current_step == 'Done'">
-            <img :src="display_instiue ? bloomImage() : insitueImage()" alt="insitue image toggle" class="img-thumb"
+            <img :src="display_instiue ? bloomImage() : insitueImage()" alt="insitue image toggle" class="img-thumb insitue-toggle"
                  @click="display_instiue = !display_instiue">
         </div>
     </div>
 
 
-    <div class="row" x-show="current_step == 'Done'">
+    <div class="row done-text" x-show="current_step == 'Done'" >
         <p class="blurb text-center" x-text="doneText()"></p>
     </div>
 
@@ -90,7 +100,7 @@
         <div class="text-start">
             <button class="btn-brown btn-back"
                     @click="back()"
-                    x-show="selected_stem_type">
+                    >
                 BACK
             </button>
         </div>

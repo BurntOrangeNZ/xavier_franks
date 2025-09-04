@@ -2,15 +2,15 @@ document.addEventListener('alpine:init', () => {
     // Define Alpine data and components here
     Alpine.data('app_data', () => ({
         // Your data properties
-        steps: ['Stem','Finish','Ceiling','Bloom','Done'],
+        steps: ['Stem', 'Finish', 'Ceiling', 'Bloom', 'Done'],
         current_step: 'Stem',
-        finish_types : ['Nickle','Brass','Black'],
+        finish_types: ['Nickle', 'Brass', 'Black'],
         selected_finish_type: 'Nickle',
-        stem_types: ['Floor','Ceiling','Table'],
+        stem_types: ['Floor', 'Ceiling', 'Table'],
         selected_stem_type: '',
-        ceiling_types: ['Flat','Sloping',''],
+        ceiling_types: ['Flat', 'Sloping', ''],
         selected_ceiling_type: 'Flat',
-        bloom_types: ['Magnolia','Poppy','Lotus'],
+        bloom_types: ['Magnolia', 'Poppy', 'Lotus'],
         selected_bloom_type: 'Magnolia',
         step_display_names: {
             'Stem': 'Stem Options',
@@ -37,15 +37,17 @@ document.addEventListener('alpine:init', () => {
             const currentIndex = this.steps.indexOf(this.current_step);
             if (currentIndex > 0) {
                 this.current_step = this.steps[currentIndex - 1];
-            } else {
+            } else if (this.selected_stem_type) {
                 this.selected_stem_type = false;
+            } else {
+                document.location = "https://www.xavierfranks.com/"
             }
             if (this.current_step == 'Ceiling' && this.selected_stem_type != 'Ceiling') {
                 this.current_step = 'Finish';
             }
         },
         selectorOptions() {
-            switch(this.current_step) {
+            switch (this.current_step) {
                 case 'Stem':
                     return this.stem_types;
                 case 'Finish':
@@ -59,7 +61,7 @@ document.addEventListener('alpine:init', () => {
             }
         },
         selectOption(type) {
-            switch(this.current_step) {
+            switch (this.current_step) {
                 case 'Stem':
                     this.selected_stem_type = type;
                     break;
@@ -75,7 +77,7 @@ document.addEventListener('alpine:init', () => {
             }
         },
         isSelected(type) {
-            switch(this.current_step) {
+            switch (this.current_step) {
                 case 'Stem':
                     return this.selected_stem_type == type;
                 case 'Finish':
@@ -89,30 +91,30 @@ document.addEventListener('alpine:init', () => {
 
 
         stemTypeImage() {
-                return 'img/select_lamp_elements/'+this.selected_stem_type.toLowerCase()+'/step_one_type_of_lamp/'+this.selected_stem_type+'_Step 1.png';
+            return 'img/select_lamp_elements/' + this.selected_stem_type.toLowerCase() + '/step_one_type_of_lamp/' + this.selected_stem_type + '_Step 1.png';
         },
 
         swatch(type) {
-            switch(this.current_step) {
+            switch (this.current_step) {
                 case 'Stem':
-                    return '';
+                    return 'img/select_lamp_elements/' + type.toLowerCase() + '/step_one_type_of_lamp/' + type.toLowerCase() + '_step_1.png';
                 case 'Finish':
-                    return 'img/satin_finish_colour_swatches/'+type+'.png';
+                    return 'img/satin_finish_colour_swatches/' + type + '.png';
                 case 'Ceiling':
                     return 'img/select_lamp_elements/ceiling/step_3_ceiling_type/thumbnail/Ceiling_Step_3_' + this.selected_finish_type + '_' + type + '_Thumbnail.png';
                 case 'Bloom':
-                    return 'img/lamp_heads_blooms/'+this.selected_finish_type+' '+type+'.png';
+                    return 'img/lamp_heads_blooms/' + this.selected_finish_type + ' ' + type + '.png';
             }
         },
 
         bigImage() {
-            switch(this.current_step) {
+            switch (this.current_step) {
                 case 'Stem':
                     return this.stemTypeImage(this.selected_stem_type);
                 case 'Finish':
-                    return 'img/select_lamp_elements/'+this.selected_stem_type.toLowerCase()+'/step_two_satin_finish/'+this.selected_stem_type+'_Step 2_'+this.selected_finish_type+'.png';
+                    return 'img/select_lamp_elements/' + this.selected_stem_type.toLowerCase() + '/step_two_satin_finish/' + this.selected_stem_type + '_Step 2_' + this.selected_finish_type + '.png';
                 case 'Ceiling':
-                    return 'img/select_lamp_elements/ceiling/step_3_ceiling_type/Ceiling_Step 3_'+this.selected_finish_type+'_'+this.selected_ceiling_type+'.png';
+                    return 'img/select_lamp_elements/ceiling/step_3_ceiling_type/Ceiling_Step 3_' + this.selected_finish_type + '_' + this.selected_ceiling_type + '.png';
                 case 'Bloom':
                     return this.bloomImage()
 
@@ -126,18 +128,18 @@ document.addEventListener('alpine:init', () => {
         },
         bloomImage() {
             const silly_step = this.selected_stem_type == 'Ceiling' ? '4' : '3';
-            let url = 'img/select_lamp_elements/'+this.selected_stem_type.toLowerCase()+'/step_'+silly_step+'_type_of_bloom/'+this.selected_stem_type+'_Step '+silly_step+'_'+this.selected_finish_type;
+            let url = 'img/select_lamp_elements/' + this.selected_stem_type.toLowerCase() + '/step_' + silly_step + '_type_of_bloom/' + this.selected_stem_type + '_Step ' + silly_step + '_' + this.selected_finish_type;
             if (this.selected_stem_type == 'Ceiling') {
-                url += '_'+this.selected_ceiling_type;
+                url += '_' + this.selected_ceiling_type;
             }
-            return url + '_'+this.selected_bloom_type+'.png';
+            return url + '_' + this.selected_bloom_type + '.png';
         },
         insitueImage() {
             let stem = this.selected_stem_type;
             if (stem == 'Ceiling') {
                 stem = this.selected_ceiling_type + ' Ceiling';
             }
-            let url2 = 'img/instiues/'+stem+' '+this.selected_finish_type+' '+this.selected_bloom_type+'.jpg';
+            let url2 = 'img/instiues/' + stem + ' ' + this.selected_finish_type + ' ' + this.selected_bloom_type + '.jpg';
             return url2;
         },
 
