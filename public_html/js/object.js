@@ -25,12 +25,16 @@ document.addEventListener('alpine:init', () => {
 
         },
         next() {
-            const currentIndex = this.steps.indexOf(this.current_step);
-            if (currentIndex < this.steps.length - 1) {
-                this.current_step = this.steps[currentIndex + 1];
-            }
-            if (this.current_step == 'Ceiling' && this.selected_stem_type != 'Ceiling') {
-                this.current_step = 'Bloom';
+            if (this.current_step == 'Done') {
+                document.location = "https://www.xavierfranks.com/technical"
+            } else {
+                const currentIndex = this.steps.indexOf(this.current_step);
+                if (currentIndex < this.steps.length - 1) {
+                    this.current_step = this.steps[currentIndex + 1];
+                }
+                if (this.current_step == 'Ceiling' && this.selected_stem_type != 'Ceiling') {
+                    this.current_step = 'Bloom';
+                }
             }
         },
         back() {
@@ -40,7 +44,7 @@ document.addEventListener('alpine:init', () => {
             } else if (this.selected_stem_type) {
                 this.selected_stem_type = false;
             } else {
-                document.location = "https://www.xavierfranks.com/"
+                document.location = "https://www.xavierfranks.com/home"
             }
             if (this.current_step == 'Ceiling' && this.selected_stem_type != 'Ceiling') {
                 this.current_step = 'Finish';
