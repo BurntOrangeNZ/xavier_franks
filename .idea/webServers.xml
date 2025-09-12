@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9a39ef5e-687c-4f2a-a64a-e19d72f6763c" name="xf">
+        <fileTransfer rootFolder="/home/xavierfranks/" accessType="SFTP" host="xavierfranks.webserver.co.nz" port="22" sshConfigId="1a00a22f-d674-4e76-9e8a-c267042a1fa8" sshConfig="xavierfranks@xavierfranks.webserver.co.nz:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
