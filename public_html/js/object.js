@@ -4,8 +4,8 @@ document.addEventListener('alpine:init', () => {
         // Your data properties
         steps: ['Stem', 'Finish', 'Ceiling', 'Bloom', 'Done'],
         current_step: 'Stem',
-        finish_types: ['Nickle', 'Brass', 'Black'],
-        selected_finish_type: 'Nickle',
+        finish_types: ['Nickel', 'Brass', 'Black'],
+        selected_finish_type: 'Nickel',
         stem_types: ['Floor', 'Ceiling', 'Table'],
         selected_stem_type: '',
         ceiling_types: ['Flat', 'Sloping', ''],
